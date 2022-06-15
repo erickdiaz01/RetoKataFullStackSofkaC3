@@ -13,7 +13,7 @@ public class TodoService {
     public Iterable<TodoModel> listTodo(){
         return repositoryTodo.findAll();
     }
-
+public Iterable<TodoModel> listTodoEspecificByNameList(String name){return repositoryTodo.findAllByListTodo_Name(name);}
     public TodoModel saveTodo(TodoModel newTodo){
         return repositoryTodo.save(newTodo);
     }

@@ -13,7 +13,11 @@ private TodoService serviceTodo;
     public Iterable<TodoModel> listTodo(){
         return serviceTodo.listTodo();
     }
-@PostMapping(value = "/api/todo")
+
+    @GetMapping(value = "/api/todos/{nameList}")
+    public Iterable<TodoModel> listTodoEspecificByNameList(@PathVariable("nameList") String name){return serviceTodo.listTodoEspecificByNameList(name);}
+
+    @PostMapping(value = "/api/todo")
     public TodoModel saveTodo(@RequestBody TodoModel newTodo){
         return serviceTodo.saveTodo(newTodo);
     }
