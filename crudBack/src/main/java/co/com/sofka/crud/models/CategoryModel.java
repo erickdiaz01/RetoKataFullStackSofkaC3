@@ -1,5 +1,7 @@
 package co.com.sofka.crud.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class CategoryModel {
 
     @Column(name = "name")
     private String name;
-
+    @JsonManagedReference
     @OneToMany(mappedBy = "category")
     private List<TodoListModel> listsTodos;
 

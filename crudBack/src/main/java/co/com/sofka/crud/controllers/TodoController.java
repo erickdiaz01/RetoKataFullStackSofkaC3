@@ -24,10 +24,9 @@ private TodoService serviceTodo;
     @PutMapping(value = "/api/todo/{id}")
     public TodoModel updateTodo(@RequestBody TodoModel actuallyTodo){
 
-        if(actuallyTodo.getId()!= null) {
+
             return serviceTodo.saveTodo(actuallyTodo);
-        }
-        throw new RuntimeException("Para actualizar una tarea es necesario ingresar el ID en el cuerpo de la peticion");
+
 
     }
 @DeleteMapping(value = "/api/todo/{id}")

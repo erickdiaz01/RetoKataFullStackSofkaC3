@@ -11,13 +11,20 @@ public class TodoListController {
 
     @Autowired
     private TodoListService serviceTodoList;
-@GetMapping(value = "/api/todolist")
+    @GetMapping(value = "/api/todolist")
     public Iterable<TodoListModel> listTodoList(){
         return serviceTodoList.listTodoList();
     }
-@PostMapping(value = "/api/todolist")
-    public TodoListModel saveTodoList(TodoListModel newTodoList){
+    @PostMapping(value = "/api/todolist")
+    public TodoListModel saveTodoList(@RequestBody TodoListModel newTodoList){
         return serviceTodoList.saveTodoList(newTodoList);
+    }
+    @PutMapping(value = "/api/todolist/{id}")
+    public TodoListModel updateTodoList(@RequestBody TodoListModel actuallyTodoList){
+    if(actuallyTodoList.getId_TodoList()!=null){
+        return serviceTodoList.saveTodoList(actuallyTodoList);
+    }
+        throw new RuntimeException("Para actualizar una lista de tareas es necesario ingresar el ID en el cuerpo de la peticion");
     }
 
     @DeleteMapping(value = "/api/todolist/{id}")

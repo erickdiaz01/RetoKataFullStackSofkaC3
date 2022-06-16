@@ -1,5 +1,7 @@
 package co.com.sofka.crud.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,19 +14,19 @@ public class TodoModel {
 
     @Column(name = "name",nullable = false,length = 50)
     private String name;
-    @Column(name="isCompleted")
+    @Column(name="isCompleted",nullable = false)
     private boolean isCompleted;
-
-   @ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-   @JoinColumn(name = "listOfTodo")
+   @JsonBackReference
+   @ManyToOne(optional = false,cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
+   @JoinColumn(name = "listTodo",nullable = false)
     private TodoListModel listTodo;
 
    @Column(name = "description", length = 100)
    private String description;
 
-    public TodoModel() {
-        this.isCompleted = false;
-    }
+
+
+
     public Long getId_todo() {
         return id_todo;
     }
@@ -67,10 +69,10 @@ public class TodoModel {
     }
 
     public boolean isCompleted() {
-        return isCompleted;
+        return this.isCompleted;
     }
 
     public void setCompleted(boolean completed) {
-        isCompleted = completed;
+        this.isCompleted = completed;
     }
 }

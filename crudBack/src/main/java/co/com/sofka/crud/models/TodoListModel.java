@@ -1,5 +1,8 @@
 package co.com.sofka.crud.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,11 +15,12 @@ public class TodoListModel {
 
     @Column(name = "nameTodoList",nullable = false,length = 50)
     private String name;
-
-    @ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "category")
+    @JsonBackReference
+    @ManyToOne(optional = false,cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
+    @JoinColumn(name = "category",nullable = false)
     private CategoryModel category;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "listTodo")
     private List<TodoModel> listTodos;
 

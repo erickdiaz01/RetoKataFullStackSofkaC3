@@ -1,7 +1,6 @@
 package co.com.sofka.crud.services;
 
 import co.com.sofka.crud.models.TodoListModel;
-import co.com.sofka.crud.models.TodoModel;
 import co.com.sofka.crud.repositories.TodoListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
