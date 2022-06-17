@@ -17,12 +17,13 @@ public class TodoModel {
     @Column(name="isCompleted",nullable = false)
     private boolean isCompleted;
    @JsonBackReference
-   @ManyToOne(optional = false,cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
-   @JoinColumn(name = "listTodo",nullable = false)
+   @ManyToOne(optional = true,cascade = {CascadeType.MERGE
+           //,CascadeType.REMOVE
+   },fetch = FetchType.LAZY)
+   @JoinColumn(name = "listTodo",nullable = true)
     private TodoListModel listTodo;
 
-   @Column(name = "description", length = 100)
-   private String description;
+
 
 
 
@@ -41,14 +42,6 @@ public class TodoModel {
 
     public void setListTodo(TodoListModel listTodo) {
         this.listTodo = listTodo;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
 
