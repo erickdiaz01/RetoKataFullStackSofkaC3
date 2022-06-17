@@ -16,10 +16,12 @@ public class TodoListController {
     public Iterable<TodoListModel> listTodoList(){
         return serviceTodoList.listTodoList();
     }
+    @CrossOrigin("http://127.0.0.1:5500")
     @PostMapping(value = "/api/todolist")
     public TodoListModel saveTodoList(@RequestBody TodoListModel newTodoList){
         return serviceTodoList.saveTodoList(newTodoList);
     }
+    @CrossOrigin("http://127.0.0.1:5500")
     @PutMapping(value = "/api/todolist/{id}")
     public TodoListModel updateTodoList(@RequestBody TodoListModel actuallyTodoList){
     if(actuallyTodoList.getId_TodoList()!=null){
@@ -27,7 +29,7 @@ public class TodoListController {
     }
         throw new RuntimeException("Para actualizar una lista de tareas es necesario ingresar el ID en el cuerpo de la peticion");
     }
-
+    @CrossOrigin("http://127.0.0.1:5500")
     @DeleteMapping(value = "/api/todolist/{id}")
     public void deleteTodoList (@PathVariable("id") Long id){
         serviceTodoList.deleteTodoList(id);

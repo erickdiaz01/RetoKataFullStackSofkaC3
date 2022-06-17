@@ -16,9 +16,10 @@ export const getAll = async () => {
     console.log(jsonList);
 
     jsonCategories.forEach((category) => {
+      
       const option = d.createElement("option");
       option.textContent = category.name;
-      option.value = { name: category.name, id_category: category.id_category };
+      option.value = JSON.stringify(category)  ;
       fragmentCateogories.appendChild(option);
     });
     selectCategory.appendChild(fragmentCateogories);

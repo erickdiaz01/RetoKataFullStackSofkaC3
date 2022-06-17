@@ -12,6 +12,7 @@ public class CategoryController {
     @CrossOrigin("http://127.0.0.1:5500")
 @GetMapping(value = "/api/categories")
     public Iterable<CategoryModel> listCategories (){return serviceCategory.listCategories();}
+    @CrossOrigin("http://127.0.0.1:5500")
 @PostMapping(value = "/api/category")
     public CategoryModel saveCategory(@RequestBody CategoryModel newCategory){
         return serviceCategory.saveCategory(newCategory);
