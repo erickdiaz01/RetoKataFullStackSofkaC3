@@ -71,7 +71,14 @@ body {
   float: left;
   margin-left: 10px;
   align-items: flex-end;
+  
+  
 }
+h6{
+  text-align: center;
+}
+
+
 /* ul li{
     text-decoration:none;
     color:#000;

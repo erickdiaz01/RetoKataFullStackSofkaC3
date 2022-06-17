@@ -16,9 +16,7 @@ public class TodoListModel {
     @Column(name = "nameTodoList",nullable = false,length = 50)
     private String name;
     @JsonBackReference
-    @ManyToOne(optional = true,cascade = {CascadeType.MERGE
-            //,CascadeType.REMOVE
-    },fetch = FetchType.LAZY)
+    @ManyToOne(optional = false,cascade = {CascadeType.MERGE},fetch = FetchType.EAGER)
     @JoinColumn(name = "category",nullable = true)
     private CategoryModel category;
 
