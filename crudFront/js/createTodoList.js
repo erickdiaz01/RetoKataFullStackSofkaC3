@@ -22,7 +22,8 @@ export const createTodoList = (list, category) => {
     "",
     "Eliminar Lista"
   );
-
+  buttonDeleteList.dataset.id = list.id_TodoList;
+  buttonDeleteList.setAttribute("id", "deleteList");
   divCol3Header.append(buttonDeleteList);
 
   divRowHeader.append(divCol9Header, divCol3Header);
@@ -40,13 +41,11 @@ export const createTodoList = (list, category) => {
   completedListTodo.textContent = "Hecho";
   actionsListTodo.textContent = "Acciones";
   divTitleBodyCol9.append(titleListTodo);
-  if(list.listTodos.length!==0){
-    console.log("hola soy 0")
-
+  if (list.listTodos.length !== 0) {
     divTitleBodyCol1.append(completedListTodo);
     divTitleBodyCol2.append(actionsListTodo);
   }
-  
+
   divRowTitleBody.append(divTitleBodyCol9, divTitleBodyCol1, divTitleBodyCol2);
   divCardBody.append(divRowTitleBody);
   list.listTodos.forEach((todo) => {
@@ -63,6 +62,16 @@ export const createTodoList = (list, category) => {
       "switch",
       "isCompleted"
     );
+    inputCheckbox.dataset.id = todo.id_todo;
+    inputCheckbox.dataset.name = todo.name;
+    inputCheckbox.dataset.completed = todo.completed;
+    inputCheckbox.dataset.category = JSON.stringify(category);
+    inputCheckbox.dataset.list = JSON.stringify(list);
+    if (todo.completed) {
+      inputCheckbox.checked = true;
+    } else {
+      inputCheckbox.checked = false;
+    }
     divCheckBox.append(inputCheckbox);
     const buttonEdit = createButtonConfig(
       "btn btn-primary",
@@ -71,7 +80,10 @@ export const createTodoList = (list, category) => {
       "#editModal",
       ""
     );
+    buttonEdit.setAttribute("id", "editTodo");
     buttonEdit.innerHTML = createEditIcon();
+    buttonEdit.dataset.id = todo.id_todo;
+    buttonEdit.dataset.nameTodo = todo.name;
     const buttonDelete = createButtonConfig(
       "btn btn-danger",
       "button",
@@ -79,7 +91,9 @@ export const createTodoList = (list, category) => {
       "",
       ""
     );
+    buttonDelete.setAttribute("id", "deleteTodo");
     buttonDelete.innerHTML = createIconDelete();
+    buttonDelete.dataset.id = todo.id_todo;
     divTodoCol9.append(todoParagraph);
     divTodoCol1.append(divCheckBox);
     divTodoCol2.append(buttonEdit, buttonDelete);
@@ -91,8 +105,11 @@ export const createTodoList = (list, category) => {
   const divCol10NewTodo = createDivClass("col-10");
   const inputNewTodo = createInputConfig("form-control", "text", "", "newTodo");
   inputNewTodo.setAttribute("placeholder", "Agregue una nueva tarea");
+  inputNewTodo.dataset.idInput = list.id_TodoList;
   const divCol2NewTodo = createDivClass("col-2");
   const buttonNewTodo = createButtonConfig("btn btn-success", "", "", "", "+");
+  buttonNewTodo.setAttribute("id", "createNewTodo");
+  buttonNewTodo.dataset.id = list.id_TodoList;
   divCol10NewTodo.append(inputNewTodo);
   divCol2NewTodo.append(buttonNewTodo);
   divRowNewTodo.append(divCol10NewTodo, divCol2NewTodo);

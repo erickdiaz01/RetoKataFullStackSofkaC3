@@ -25,7 +25,6 @@ export const handleSubmit = async (e) => {
           "http://localhost:8080/api/todolist",
           options
         );
-        console.log(data);
         if (data) {
           location.reload();
         }

@@ -23,6 +23,7 @@ private TodoService serviceTodo;
     public TodoModel saveTodo(@RequestBody TodoModel newTodo){
         return serviceTodo.saveTodo(newTodo);
     }
+    @CrossOrigin("http://127.0.0.1:5500")
     @PutMapping(value = "/api/todo/{id}")
     public TodoModel updateTodo(@RequestBody TodoModel actuallyTodo){
 
