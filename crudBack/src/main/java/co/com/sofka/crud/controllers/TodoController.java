@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.*;
 public class TodoController {
 @Autowired
 private TodoService serviceTodo;
+    @CrossOrigin("http://127.0.0.1:5500")
 @GetMapping(value = "/api/todos")
     public Iterable<TodoModel> listTodo(){
         return serviceTodo.listTodo();
     }
 
+    @CrossOrigin("http://127.0.0.1:5500")
     @GetMapping(value = "/api/todos/{nameList}")
     public Iterable<TodoModel> listTodoEspecificByNameList(@PathVariable("nameList") String name){return serviceTodo.listTodoEspecificByNameList(name);}
 
@@ -33,6 +35,7 @@ private TodoService serviceTodo;
     public void deleteTodo (@PathVariable("id") Long id){
         serviceTodo.deleteTodo(id);
     }
+    @CrossOrigin("http://127.0.0.1:5500")
 @GetMapping(value = "/api/todo/{id}")
     public TodoModel getById (@PathVariable Long id){
         return serviceTodo.getById(id);

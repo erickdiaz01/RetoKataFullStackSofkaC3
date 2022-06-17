@@ -1,0 +1,85 @@
+.container{
+    margin: 50px 40px
+}
+header{
+    margin: 50px;
+}
+body {
+  background-color: rgb(197, 223, 220);
+}
+.newCategory{
+    background-color: whitesmoke;
+}
+
+#form-newListTodo {
+  border-radius: 45px;
+  border: 1px black;
+  background-attachment: fixed;
+
+  background-color: whitesmoke;
+  background-image: url("./assets/WhatsApp\ Image\ 2022-06-16\ at\ 4.43.35\ PM.jpeg");
+  padding: 30px;
+  margin: 10px;
+  box-shadow: 5px 5px 10px black;
+}
+#form-newListTodo label,
+#form-newListTodo legend,
+#form-newListTodo p {
+  background-color: white;
+}
+.solution,
+.principalTitle {
+  color: rgb(82, 102, 98);
+  font-weight: 900;
+  font-family: "Merriweather", serif;
+  margin: auto;
+  text-align: center;
+}
+
+/* .listTodo h2, .listTodo p{
+    font-size:100%;
+    font-weight: bolder;
+    font-family: Amatic SC;
+
+} */
+.card {
+  padding: 10px;
+  margin: 20px;
+}
+.card-body p {
+  list-style: none;
+  background-color: rgb(255, 220, 220);
+  font-weight: bold;
+  font-family: "Exo", sans-serif;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+#newTarea {
+  margin-left: 8px;
+  margin-bottom: 15px;
+}
+#newTarea button {
+  width: 80%;
+}
+#newTodo {
+  background-color: rgb(255, 220, 220);
+}
+.card-body button {
+  float: left;
+  margin-left: 10px;
+  align-items: flex-end;
+}
+/* ul li{
+    text-decoration:none;
+    color:#000;
+    background:#ffc;
+    display:block;
+    height:10em;
+    width:10em;
+    padding:1em;
+    margin:1em;
+  float:left;
+} */

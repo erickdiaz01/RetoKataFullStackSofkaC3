@@ -11,6 +11,7 @@ public class TodoListController {
 
     @Autowired
     private TodoListService serviceTodoList;
+    @CrossOrigin("http://127.0.0.1:5500")
     @GetMapping(value = "/api/todolist")
     public Iterable<TodoListModel> listTodoList(){
         return serviceTodoList.listTodoList();
@@ -31,7 +32,7 @@ public class TodoListController {
     public void deleteTodoList (@PathVariable("id") Long id){
         serviceTodoList.deleteTodoList(id);
     }
-
+    @CrossOrigin("http://127.0.0.1:5500")
     @GetMapping(value = "/api/todolist/{id}")
     public TodoListModel getById (@PathVariable("id") Long id){
         return serviceTodoList.getById(id);

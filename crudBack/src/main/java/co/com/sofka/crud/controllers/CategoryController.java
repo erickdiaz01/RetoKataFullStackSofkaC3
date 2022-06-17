@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class CategoryController {
     @Autowired
     private CategoryService serviceCategory;
+    @CrossOrigin("http://127.0.0.1:5500")
 @GetMapping(value = "/api/categories")
     public Iterable<CategoryModel> listCategories (){return serviceCategory.listCategories();}
 @PostMapping(value = "/api/category")
@@ -26,6 +27,7 @@ public class CategoryController {
     public void deleteCategory (@PathVariable("id") Long id){
     serviceCategory.deleteCategory(id);
     }
+    @CrossOrigin("http://127.0.0.1:5500")
     @GetMapping(value = "/api/category{id}")
     public CategoryModel getById (@PathVariable("id") Long id){
         return serviceCategory.getById(id);

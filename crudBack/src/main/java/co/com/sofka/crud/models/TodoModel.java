@@ -12,7 +12,7 @@ public class TodoModel {
     @GeneratedValue
     private Long id_todo;
 
-    @Column(name = "name",nullable = false,length = 50)
+    @Column(name = "name",nullable = false,length = 100)
     private String name;
     @Column(name="isCompleted",nullable = false)
     private boolean isCompleted;
