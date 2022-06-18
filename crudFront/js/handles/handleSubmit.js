@@ -1,3 +1,11 @@
+/**
+ * Metodo que maneja el evento de dar click en el boton de crear una nueva lista de tareas, maneja la
+ * captura del valor del nombre de la nueva lista de tareas a crear asi como la categoria de esta lista de
+ * tareas, si alguno de los  valores esta vacio
+ * dispara una alerta que da un mensaje al usuario para que ingrese un valor valido y pueda enviar
+ * la peticion POST
+ * @param {Object} e
+ */
 export const handleSubmit = async (e) => {
   const form = document.querySelector("#form-newListTodo"),
     input = form.querySelector("#inputListTodo"),

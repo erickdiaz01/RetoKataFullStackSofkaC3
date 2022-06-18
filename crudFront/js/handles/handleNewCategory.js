@@ -1,3 +1,10 @@
+/**
+ * Metodo que maneja el evento de dar click en el boton de crear una nueva categoria, despliega la ventana
+ * modal y maneja la captura del valor del nombre de la nueva categoria a crear, si el valor esta vacio
+ * dispara una alerta que da un mensaje al usuario para que ingrese un valor valido y pueda enviar
+ * la peticion POST
+ * @param {Object} e 
+ */
 export const handleNewCategory = async (e) => {
   const modalCategory = document.querySelector("#categoryModal"),
     button = modalCategory.querySelector("#createCategory"),

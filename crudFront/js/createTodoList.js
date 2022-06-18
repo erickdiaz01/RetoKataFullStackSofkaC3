@@ -3,7 +3,16 @@ import { createDivClass } from "./common/createDivClass.js";
 import { createIconDelete } from "./common/createIconDelete.js";
 import { createEditIcon } from "./common/createIconEdit.js";
 import { createInputConfig } from "./common/createInputConfig.js";
-
+/**
+ * Metodo que mediante el manejo del DOM crea una card con el contenido de una nueva lista de tareas,
+ * internamente le asigna unos valores a atributos a los botones de las acciones como editar una tarea,
+ * eliminar una tarea o la lista de tareas, o crear una nueva tarea en la lista de tareas correspondiente,
+ * esto para que los manejadores de los eventos de click de cada boton tengan toda la data necesaria para
+ * cumplir sus fines.
+ * Una vez creada y ensamblada la card, se inserta en la section correspondiente a las listas de tareas
+ * @param {TodoListModel} list
+ * @param {CategoryModel} category
+ */
 export const createTodoList = (list, category) => {
   console.log(category);
   const sectionListTodo = document.querySelector(".listTodo");

@@ -1,3 +1,12 @@
+/**
+ * Metodo que recibe los valores de los atributos posibles para un button y lo crea rapidamente
+ * @param {String} className 
+ * @param {String} type 
+ * @param {String} dataBsToggle 
+ * @param {String} dataBsTarget 
+ * @param {String} text 
+ * @returns {Element}
+ */
 export function createButtonConfig  (
   className,
   type,

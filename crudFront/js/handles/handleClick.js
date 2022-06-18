@@ -1,13 +1,17 @@
 /**
- * Arrow function que maneja los eventos correspondientes a las acciones posibles a realizar en la tabla
- * para cada uno de los registros que se tienen, verifica si se 'clickeó' el boton de editar o el de eliminar,
- * dependiendo de eso realiza una acción especifica.
- * Si se 'clickeó' el boton de editar, se cambia el titulo del formulario a 'Editar luchador', adicional a eso
- * se insertan los valores del registro en los inputs del formulario para que el usuario edite con mayor
- * precisión ademas de agregar el ID existente del registro para que cuando se realice el submit se mande la
- * solicitud PUT.
- * Si se 'clickeó' el boton de eliminar se lanza una alerta de confirmacion para eliminar definitivamente o no
- * el registro, si se confirma la eliminacion se lanza la petición de DELETE con el ID del registro.
+ * Arrow function que maneja los eventos correspondientes a las acciones posibles a realizar en la lista
+ * de tareas para cada uno de los registros que se tienen, verifica si se 'clickeó' el boton de editar o el
+ *  de eliminar, o el de crear una nueva tarea dependiendo de eso realiza una acción especifica.
+ * 
+ * Si se 'clickeó' el boton de editar se insertan los valores del registro en los inputs del formulario
+ * alojado en una ventana modal para que el usuario edite con mayor
+ * precisión, ademas de agregar el ID existente del registro para que cuando se realice el submit se mande 
+ * la peticion PUT.
+ * Si se 'clickeó' el boton de eliminar se lanza una alerta de confirmacion para eliminar definitivamente o 
+ * no el registro, si se confirma la eliminacion se lanza la petición de DELETE con el ID del registro.
+ * Si se clickeó el boton de agregar una nueva tarea, internamente se realiza el manejo de seleccion para
+ * capturar el valor de la tarea ingresada, si el valor es vacio no permite crear una nueva tarea en la
+ * lista correspondiente
  * @param {Object} e Objeto que se crea cuando se dispara el evento correspondiente
  */
 export const handleClick = async (e) => {
@@ -113,8 +117,8 @@ export const handleClick = async (e) => {
     try {
       let category = JSON.parse(e.target.dataset.category);
       let listTodo = JSON.parse(e.target.dataset.list);
-      console.log(e.target.dataset.completed)
-      if (e.target.dataset.completed==="false") {
+      console.log(e.target.dataset.completed);
+      if (e.target.dataset.completed === "false") {
         console.log("first");
         let options = {
           method: "PUT",
@@ -143,9 +147,8 @@ export const handleClick = async (e) => {
           alert("Bien hecho, completaste la tarea!");
           location.reload();
         }
-        
       } else {
-        console.log("hola")
+        console.log("hola");
         let options = {
           method: "PUT",
           headers: {
@@ -169,11 +172,12 @@ export const handleClick = async (e) => {
           `http://localhost:8080/api/todo/${e.target.dataset.id}`,
           options
         );
-        if(res){
-            alert("¿Te confundiste? No importa, a todos nos pasa, sigue haciendo tus tareas!");
-            location.reload()
+        if (res) {
+          alert(
+            "¿Te confundiste? No importa, a todos nos pasa, sigue haciendo tus tareas!"
+          );
+          location.reload();
         }
-        
       }
     } catch (error) {
       console.log(error);
