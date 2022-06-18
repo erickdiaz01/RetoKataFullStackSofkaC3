@@ -7,10 +7,12 @@
  * @param {Object} e
  */
 export const handleSubmit = async (e) => {
+  console.log("hola async")
   const form = document.querySelector("#form-newListTodo"),
     input = form.querySelector("#inputListTodo"),
-    selectCategory = form.querySelector("#selectCategory");
-  if (e.target === form) {
+    selectCategory = form.querySelector("#selectCategory"),
+    buttonSub=document.querySelector("#create");
+  if (e.target === buttonSub) {
     if (input.value == "" || selectCategory.value == "") {
       alert("Por favor ingresa toda la informacion requerida");
     } else {

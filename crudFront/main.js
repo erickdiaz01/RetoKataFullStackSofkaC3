@@ -11,21 +11,25 @@ import { handleSubmit } from "./js/handles/handleSubmit.js";
  * @date 17-06-2022
  */
 function main() {
+     document
+      .querySelector("#create")
+      .addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("hola submit");
+        handleSubmit(e);
+      });
   document.addEventListener("DOMContentLoaded", getAll);
-  document
-    .getElementById("form-newListTodo")
-    .addEventListener("submit", (e) => {
-      e.preventDefault();
-      handleSubmit(e);
-    });
-  document.getElementById("createCategory").addEventListener("click", (e) => {
-    e.preventDefault();
-    handleNewCategory(e);
-  });
+
   document.addEventListener("click", (e) => {
     e.preventDefault();
     handleClick(e);
   });
+  document.getElementById("createCategory").addEventListener("click", (e) => {
+    e.preventDefault();
+    handleNewCategory(e);
+  });
+ 
+
 }
 
 main();
