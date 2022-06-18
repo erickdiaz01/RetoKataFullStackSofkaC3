@@ -1,3 +1,5 @@
+
+
 /**
  * Arrow function que maneja los eventos correspondientes a las acciones posibles a realizar en la lista
  * de tareas para cada uno de los registros que se tienen, verifica si se 'clickeó' el boton de editar o el
@@ -19,13 +21,21 @@ export const handleClick = async (e) => {
   const modal = modalDiv.querySelector("#editModal");
   const inputID = modal.querySelector("#idTodo");
   const inputTodo = modal.querySelector("#recipient-name");
+
   if (e.target.matches("#editTodo")) {
+    
     inputID.value = e.target.dataset.id;
-    inputTodo.value = e.target.dataset.nameTodo;
+    inputTodo.value = e.target.dataset.name;
+    inputID.dataset.id=e.target.dataset.id;
+    inputID.dataset.name = e.target.dataset.name;
+    inputID.dataset.completed = e.target.dataset.completed;
+    inputID.dataset.category = e.target.dataset.category
+    inputID.dataset.list = e.target.dataset.list
+    
   }
 
   if (e.target.matches("#deleteTodo")) {
-    console.log("hola");
+
     let isDelete = confirm(
       `¿Estás seguro de eliminar la tarea con id ${e.target.dataset.id}?`
     );

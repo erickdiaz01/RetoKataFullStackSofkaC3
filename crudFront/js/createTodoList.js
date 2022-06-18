@@ -92,7 +92,10 @@ export const createTodoList = (list, category) => {
     buttonEdit.setAttribute("id", "editTodo");
     buttonEdit.innerHTML = createEditIcon();
     buttonEdit.dataset.id = todo.id_todo;
-    buttonEdit.dataset.nameTodo = todo.name;
+    buttonEdit.dataset.name = todo.name;
+    buttonEdit.dataset.completed = todo.completed;
+    buttonEdit.dataset.category = JSON.stringify(category);
+    buttonEdit.dataset.list = JSON.stringify(list);
     const buttonDelete = createButtonConfig(
       "btn btn-danger",
       "button",
