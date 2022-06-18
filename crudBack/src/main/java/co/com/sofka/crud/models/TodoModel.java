@@ -4,6 +4,21 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
+/**
+ * Modelo de datos para la entidad de Todo, este modelo tiene los atributos
+ * del ID autogenerado por JPA, nombre de la tarea a realizar, un estado que
+ * corresponde a si se ha completado la tarea o no, tiene indexado un atributo
+ * correspondiente a la lista de tareas a la cual pertenece dicha tarea, esta
+ * lista de tareas solo puede tener esta lista de tareas, pero esa lista de
+ * tareas puede tener muchas mas tareas a completar.
+ * 
+ * Esta entidad esta manejada por JPA, en SQL la tabla con el nombre de Todos
+ * Tambien contiene los Getters y Setter de los atributos
+ *
+ * @author Erick Diaz
+ * @date 17-06-2022
+ * 
+ */
 @Entity
 @Table(name = "Todos")
 public class TodoModel {
@@ -12,21 +27,15 @@ public class TodoModel {
     @GeneratedValue
     private Long id_todo;
 
-    @Column(name = "name",nullable = false,length = 100)
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
-    @Column(name="isCompleted",nullable = false)
+    @Column(name = "isCompleted", nullable = false)
     private boolean isCompleted;
-   @JsonBackReference
-   @ManyToOne(optional = true,cascade = {CascadeType.MERGE
-           //,CascadeType.REMOVE
-   },fetch = FetchType.LAZY)
-   @JoinColumn(name = "listTodo",nullable = true)
+    @JsonBackReference
+    @ManyToOne(optional = true, cascade = { CascadeType.MERGE
+    }, fetch = FetchType.LAZY)
+    @JoinColumn(name = "listTodo", nullable = true)
     private TodoListModel listTodo;
-
-
-
-
-
 
     public Long getId_todo() {
         return id_todo;
@@ -43,7 +52,6 @@ public class TodoModel {
     public void setListTodo(TodoListModel listTodo) {
         this.listTodo = listTodo;
     }
-
 
     public Long getId() {
         return id_todo;
